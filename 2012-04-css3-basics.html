@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS3 Basics » Alexander Bogomolov</title>
+
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+    <meta name="author" content="Alexander Bogomolov" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="lib/css/impress-js.css" rel="stylesheet" />
+    <link href="lib/css/style.css" rel="stylesheet" />
+    <link href="lib/plugins/highlight/styles/default.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <section id="presentation">
+      <header>
+        <progress id="presentation-progress" max="10" value="1"></progress>
+      </header>
+
+      <div id="impress" class="impress-not-supported">
+
+        <article id="intro" class="step slide" data-x="0" data-y="0" data-scale="1">
+          <h1>CSS3 Basics</h1>
+          <p>Einstieg in die moderne Web-Entwicklung</p>
+        </article>
+
+        <article id="einfacher" class="step" data-x="1500" data-y="0" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Einleitung</h1>
+        </article>
+
+        <article id="rahmen" class="step" data-x="0" data-y="1300" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Rahmen</h1>
+          <ul class="clear">
+            <li><var>border-color</var>  - Rahmen als Verlauf (F)</li>
+            <li><var>border-image</var>  - Rahmen aus Bildern (F, C, S, O)</li>
+            <li><var>border-radius</var> - abgerundeten Ecken (IE > 9, F, C, S, O)</li>
+            <li><var>box-shadow</var>    - Schatten (IE > 9, F, C, S, O)</li>
+          </ul>
+        </article>
+
+        <article id="hintergruende" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Hintergründe</h1>
+          <ul class="clear">
+            <li><var>background-size</var>      - die Größe der Hintergrundbilder angeben</li>
+            <li><var>Multiple Backgrounds</var> - Hintergründe aus mehreren Bildern zusammensetzen</li>
+          </ul>
+        </article>
+
+        <article id="farben" class="step" data-x="-1500" data-y="0" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Farben</h1>
+          <ul class="clear">
+            <li><var>opacity: 0.6</var></li>
+            <li><var>hsl(0, 100%, 50%)</var></li>
+            <li><var>hsla(0, 100%, 50%, 0.2)</var></li>
+            <li><var>rgba(255, 0, 0, 0.2)</var></li>
+          </ul>
+        </article>
+
+        <article id="texte" class="step" data-x="-1500" data-y="600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Texte</h1>
+          <ul class="clear">
+            <li><var>text-shadow</var>    - Text mit Schatten</li>
+            <li><var>text-overflow</var>  - Wenn der Text nicht in den Container passt, dann...</li>
+            <li><var>word-wrap</var>      - Umbrechen erzwingen</li>
+          </ul>
+        </article>
+
+        <article id="selektoren" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
+          <h1>Selektoren</h1>
+          <ul class="clear">
+            <li><var>a[title]</var>       - A-Element mit einem title-Attribut</li>
+            <li><var>a[title="str"]</var> - A-Element mit dem title-Attribut "str"</li>
+            <li><var>a[title~="str"]</var> - A-Element mit dem title-Attribut "str"</li>
+            <li><var>a[title|="str"]</var> - A-Element mit dem title-Attribut "str"</li>
+            <li><var>a[title^="str"]</var> - A-Element mit "str" am Anfang im title-Attribut</li>
+            <li><var>a[title$="str"]</var> - A-Element mit "str" am Ende title-Attribut</li>
+            <li><var>a[title*="str"]</var> - A-Element mit "str" irgendwo im title-Attribut</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-typen-2" class="step" data-x="3000" data-y="600" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="5" data-rotate-y="10">
+          <h1>Neue Input-Typen</h1>
+          <ul class="clear">
+            <li><var>type="number"</var> - Zahlen wählen (per Tastatur oder mit der Maus)</li>
+            <li><var>type="range"</var>  - Auswahl einer Zahl zwischen <var>min</var>- und <var>max</var>-Werten</li>
+            <li><var>type="color"</var>  - stellt einen Color picker bereit</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-typen-3" class="step" data-x="3000" data-y="1400" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Neue Input-Typen</h1>
+          <ul class="clear">
+            <li><var>type="datetime"</var>        - Datum und Uhrzeit (<em>inkl.</em> Zeitzone)</li>
+            <li><var>type="datetime-local"</var>  - Datum und Uhrzeit (<em>exkl.</em> Zeitzone)</li>
+            <li><var>type="date"</var>            - Datum</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-typen-4" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Neue Input-Typen</h1>
+          <ul class="clear">
+            <li><var>type="month"</var>           - Monat</li>
+            <li><var>type="week"</var>            - Kalenderwoche</li>
+            <li><var>type="time"</var>            - Uhrzeit</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-typen-support" class="step" data-x="3000" data-y="2800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Browser Support</h1>
+          <img src="images/form-type-support.png" alt="Tabelle mit der Übersicht" />
+          <aside>
+            <ol>
+              <li><a href="http://www.findmebyip.com/litmus/">HTML5 & CSS3 Support</a></li>
+              <li><a href="http://miketaylr.com/code/input-type-attr.html">HTML5 inputs and attribute support</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="neue-input-attr-1" class="step" data-x="5000" data-y="0" data-z="0" data-scale="1" data-rotate="-10" data-rotate-x="0" data-rotate-y="0">
+          <h1>Neue Attribute</h1>
+          <ul class="clear">
+            <li><var>autocomplete</var>                         - Aoto-Vervollständigung (on/off)</li>
+            <li><var>autofocus</var>                            - das Feld wird sofort fokussiert (siehe passwordtool)</li>
+            <li><var>list</var> & <code>&lt;datalist&gt;</code> - unsichtbarer Behälter für <var>option</var>-Elemente</li>
+            <li><var>pattern</var>                              - regulärer Ausdruck für die Validierung</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-attr-2" class="step" data-x="5000" data-y="800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Neue Attribute</h1>
+          <ul class="clear">
+            <li><var>placeholder</var>  - Platzhalter</li>
+            <li><var>readonly</var>     - Lässt keine Veränderungen zu</li>
+            <li><var>required</var>     - Pflichtfeld</li>
+            <li><var>multiple</var>     - Erlaubt die Eingabe mehrerer Werte</li>
+          </ul>
+        </article>
+
+        <article id="neue-input-attr-support" class="step" data-x="5000" data-y="1600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Browser Support</h1>
+          <img src="images/form-attr-support.png" alt="Tabelle mit der Übersicht" />
+          <aside>
+            <ol>
+              <li><a href="http://www.findmebyip.com/litmus/">HTML5 & CSS3 Support</a></li>
+              <li><a href="http://miketaylr.com/code/input-type-attr.html">HTML5 inputs and attribute support</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="modernizr" class="step" data-x="-3000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Modernizr<sub>1</sub> (max. 42 KB)</h1>
+          <ul>
+            <li>Prüft die Verfügbarkeit Features (HTML5/CSS3)</li>
+            <li>Rüstet keine Features nach</li>
+            <li>Fügt Klassen an das HTML-Element hinzu</li>
+            <li>html5shiv inklusive</li>
+            <li>yepnope inklusive</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a href="http://www.modernizr.com/">http://www.modernizr.com/</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="overview" class="step" data-x="500" data-y="500" data-scale="10"></article>
+
+      </div>
+      <footer>Alexander Bogomolov - <span class="eos-color">EOS</span> UPTRADE GmbH</footer>
+    </section>
+
+
+    <script src="lib/js/impress.js"></script>
+    <script src="lib/plugins/highlight/highlight.pack.js"></script>
+    <script src="lib/js/scripts.js"></script>
+  </body>
+</html>
