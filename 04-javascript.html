@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS3 Basics » Alexander Bogomolov</title>
+
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+    <meta name="author" content="Alexander Bogomolov" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="lib/css/impress-js.css" rel="stylesheet" />
+    <link href="lib/css/style.css" rel="stylesheet" />
+    <link href="lib/plugins/highlight/styles/default.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <section id="presentation">
+      <header>
+        <progress id="presentation-progress" max="10" value="1"></progress>
+      </header>
+
+      <div id="impress" class="impress-not-supported">
+
+        <article id="intro" class="step" data-x="0" data-y="0" data-scale="1">
+          <h1>JavaScript & jQuery</h1>
+          <p></p>
+        </article>
+
+        <!--
+        <article id="einfacher" class="step" data-x="1500" data-y="0" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Einleitung</h1>
+        </article>
+        -->
+
+        <article id="sass-vs-scss" class="step" data-x="0" data-y="1300" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>SASS vs. SCSS</h1>
+          <h2>SASS</h2>
+          <pre><code class="language-css">.class
+  margin: 10px
+  .subclass
+    color: red</code></pre>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">.class {
+  margin: 10px;
+  .subclass {
+    color: red;
+  }
+}</code></pre>
+        </article>
+
+        <article id="variablen" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Variablen</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">$logo-blue: #0090D1;
+$logo-gray: #767372;
+
+a { color: $logo-blue; }
+a:hover { color: $logo-gray; }
+</code></pre>
+          <h2>CSS</h2>
+          <pre><code class="language-css">a { color: #0090D1; }
+a:hover { color: #767372; }</code></pre>
+        </article>
+
+        <article id="rechnen" class="step" data-x="-1500" data-y="0" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Rechnen</h1>
+          <pre><code class="language-css">div { width: 40px + 2px - 5px / 2 * 10; }</code></pre>
+          <pre><code class="language-css">$width-page: 960px;
+$width-sidebar: 200px;
+$width-content: $width-page - $width-sidebar;
+
+#page { width: $width-page; }
+#sidebar { width: $width-sidebar; }
+#content { width: $width-content; }</code></pre>
+
+          <h2>Berechnugnen</h2>
+          <pre><code class="language-css">round(3.3); /* 3 */
+ceil(3.3); /* 4 */
+floor(3.9);  /* 3 */
+abs(-12); /* 12 */
+precentage(26/50); /* 52 */</code></pre>
+
+        </article>
+
+        <article id="nesting-1" class="step" data-x="-1500" data-y="800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Nesting</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">.class {
+  color: green;
+  .subclass {
+    color: red;
+  }
+}</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">.class { color: green; }
+.class .subclass { color: red; }</code></pre>
+        </article>
+
+        <article id="selektoren-2" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
+          <h1>Nesting</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">a {
+  color: green;
+  &:hover {
+    color: red;
+  }
+}
+
+button {
+  background: #ccc;
+  .no-bg & {
+    background: transparent;
+  }
+}</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">a { color: green; }
+a:hover { color: red; }
+
+button { background: #ccc; }
+.no-bg button { background: transparent; }</code></pre>
+        </article>
+
+        <article id="auslagern" class="step" data-x="3000" data-y="800" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="5" data-rotate-y="10">
+          <h1>Auslagern</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">.message {
+  border: 1px solid transparent;
+  padding: 1em;
+  margin: 1em 0;
+}
+.error {
+  @extend .message;
+  border-color: red;
+}</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">.message, .error {
+  border: 1px solid transparent;
+  padding: 1em;
+  margin: 1em 0;
+}
+.error {
+  border-color: red;
+}</code></pre>
+        </article>
+
+        <article id="mixins" class="step" data-x="3000" data-y="1800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Mixins</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">@mixin border-radius($radius:5px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+div {
+  @include border-radius(10px);
+}</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">div {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}</code></pre>
+        </article>
+
+        <article id="if" class="step" data-x="3000" data-y="2800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Abfragen</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">@mixin color($dark:false) {
+  @if $dark == treu {
+    color: #000;
+    &:hover { color: blue; }
+  } @else {
+    color: #fff;
+    &:hover { color: #ccc; };
+  }
+}
+a.odd { @include color(); }
+a.even { @include color(true); }</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">a.odd { color: #000 }
+a.odd:hover { color: blue; }
+a.even { color: #fff; }
+a.even:hover { color: #ccc; }</code></pre>
+        </article>
+
+        <article id="compass" class="step" data-x="5000" data-y="0" data-z="0" data-scale="1" data-rotate="-10" data-rotate-x="0" data-rotate-y="0">
+          <h1>Compass</h1>
+          <img class="left" src="images/css_sass_compass.jpg" alt="CSS vs. SASS vs. Compass" />
+
+          <ul class="clear">
+            <li>SASS</li>
+            <li>Mehr Funktionen</li>
+            <li>Mixins Bibliothek</li>
+            <li>Erweiterungen</li>
+          </ul>
+
+          <aside>
+            <ol>
+              <li><a href="http://maddesigns.de/compass-sass-1472.html" title="">Bildquelle</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="bilder" class="step" data-x="5000" data-y="800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Arbeiten mit Bildern</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">header {
+  background: image-url('mein-bild.png');
+  h1 {
+    width: image-width('mein-bild.png');
+    height: image-height('mein-bild.png');
+  }
+}</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">header { background: url('images/mein-bild.png?123456789'); }
+header h1 {
+  width: 560px;
+  height: 240px;
+}</code></pre>
+        </article>
+
+        <article id="sprites" class="step" data-x="5000" data-y="1600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Sprites</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">@import "icon/*.png";
+@import all-icon-sprites($dimensions:true);</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">.icon-sprite, .icon-minus { background: url('images/icon-sd6115b5d.png') no-repeat; }
+.icon-minus {
+  background-position: 15px 255px;
+  width: 16px;
+  height: 16px;
+}</code></pre>
+        </article>
+
+        <article id="links" class="step" data-x="-3000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Links</h1>
+          <ul>
+            <li><a href="http://sass-lang.com/">Sass - Syntactically Awesome Stylesheets</a></li>
+            <li><a href="http://compass-style.org/">Compass</a></li>
+            <li><a href="http://www.webkrauts.de/2011/12/04/sass-compas/">Effiziente CSS-Entwicklung mit Sass und Compass (Teil 1)</a></li>
+            <li><a href="http://www.webkrauts.de/2011/12/05/sass-compass2/">Effiziente CSS-Entwicklung mit Sass und Compass (Teil 2)</a></li>
+            <li><a href="http://maddesigns.de/compass-sass-1472.html">Compass & SASS – CSS3 Adventskalender Tag 17</a></li>
+            <li><a href="http://www.youtube.com/playlist?list=PL2CB1F80266E986EA">Sass Tutorials</a></li>
+          </ul>
+        </article>
+
+        <article id="danke" class="step" data-x="0" data-y="-2500" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Vielen Dank!</h1>
+          <img id="me" src="lib/images/me.jpg" alt="Alexander Bogomolov" />
+          <ul class="clear">
+            <li><a href="http://www.twitter.de/abogomolov" title="Alexander auf Twitter">@abogomolov</a></li>
+            <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogmolov</a></li>
+          </ul>
+
+        </article>
+
+        <article id="overview" class="step" data-x="500" data-y="500" data-scale="10"></article>
+
+      </div>
+      <footer>Alexander Bogomolov - <span class="eos-color">EOS</span> UPTRADE GmbH</footer>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="lib/js/impress.js"></script>
+    <script src="lib/plugins/highlight/highlight.pack.js"></script>
+    <script src="lib/js/scripts.js"></script>
+  </body>
+</html>
