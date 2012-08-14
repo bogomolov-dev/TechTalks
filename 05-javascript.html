@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>CSS3 Basics » Alexander Bogomolov</title>
+    <title>JavaScript » Alexander Bogomolov</title>
 
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
     <meta name="author" content="Alexander Bogomolov" />
@@ -23,99 +23,102 @@
       <div id="impress" class="impress-not-supported">
 
         <article id="intro" class="step" data-x="0" data-y="0" data-scale="1">
-          <h1>Übersicht</h1>
-          <ul>
-            <li>jQuery allgemein</li>
-          </ul>
+          <h1>JavaScript</h1>
+          <p>Struktur ist alles!</p>
         </article>
 
 
         <article id="allgemeines" class="step" data-x="1500" data-y="0" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
-          <h1>jQuery allgemein</h1>
-          <ul>
-            <li>Immer die aktuelle Version verwenden! (v. 1.8.0)</li>
-            <li>JavaScript immer vor <var>&lt;/body&gt;</var> einfügen</li>
+          <h1>Dateien richtig strukturieren</h1>
+          <ul class="clear" style="font-size: .8em; padding: 0;">
             <li>
-              CDN verwenden (Google / jQuery)
-              <pre><code class="language-html">&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+              js
+              <ul style="margin-left: 2.5em;">
+                <li>plugins<ul style="margin-left: 2.5em;"><li>...</li></ul></li>
+                <li>partials/init<ul style="margin-left: 2.5em;"><li>colorbox.init.js</li><li>...</li></ul></li>
+                <li>application.js</li>
+              </ul>
             </li>
             <li>
-              Möglichst einfache Selektoren verwenden
-              <pre><code class="language-javascript">var e = $('.class .subclass');
-var e2 = $('#faster-selector');</code></pre>
-            </li>
-            <li>$ ist auch nur eine Variable!</li>
-          </ul>
-        </article>
-
-
-        <article id="cache-chaining" class="step" data-x="0" data-y="1300" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
-          <h1>Variablem immer cachen!</h1>
-          <pre><code class="language-javascript">$(this).show();
-$(this).css('color', 'red);
-$(this).text('Sooo slow');</code></pre>
-
-          <pre><code class="language-javascript">var e = $(this).show();
-e.css('color', 'red);
-e.text('Sooo slow');</code></pre>
-
-          <h1>Noch besser: Chaining</h1>
-          <pre><code class="language-javascript">var e = $('#selector').show().css('color', 'red).text('Sooo slow');</code></pre>
-
-          <p>Fast alle Methoden geben das Object zurück.</p>
-        </article>
-
-        <article id="styling" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
-          <h1>Möglichst kein Styling über JS</h1>
-          <pre><code class="language-javascript">$(this).css({color: 'red', backgroundColor: 'green'})</code></pre>
-
-          <h1>Ändere die CSS-Klassen</h1>
-          <pre><code class="language-javascript">$(this).addClass('active')</code></pre>
-          <p>Die Wartbarkeit steigt, da man alle Anpassungen im CSS vornehmen kann.</p>
-        </article>
-
-        <article id="data" class="step" data-x="-1500" data-y="0" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
-          <h1>Das class-Attribut ist <strong>kein</strong> Speicher für Daten</h1>
-          <p>Dafür gibt es das HTML5 Attribut data-*</p>
-          <pre><code class="language-html">&lt;a id="pass-data" href="/post/data" data-object-id="5"&gt;Click me!&lt;/a&gt;</code></pre>
-          <pre><code class="language-javascript">var object_id = $('#pass-data').data('object-id');</code></pre>
-        </article>
-
-        <article id="tipps-1" class="step" data-x="-1500" data-y="800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
-          <h1>Tipps</h1>
-          <ul>
-            <li>Setze Klassen mit dem <em>js-</em> Prefix, wenn die Klasse nur für die Funktion verwendet wird.</li>
-            <li>
-              Sandardverhalten unterbinden:
-              <pre><code class="language-javascript">event.preventDefault();</code></pre>
-            </li>
-            <li>
-              Beides ist das gleiche:
-              <pre><code class="language-javascript">$(document).ready(function() { // code here });</code></pre>
-              <pre><code class="language-javascript">$(function() { // code here });</code></pre>
+              third-party
+              <ul style="margin-left: 2.5em;">
+                <li>colorbox<ul style="margin-left: 2.5em;"><li>colorbox.css</li><li>colorbox.js</li></ul></li>
+                <li>...</li>
+              </ul>
             </li>
           </ul>
         </article>
 
-        <article id="on-off-1" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
-          <h1>Neue Event APIs: <var>.on()</var> und <var>.off()</var> (ab V1.7)</h1>
-          <p><var>.on()</var> ersetzt dabei gleich mehrere Event APIs:</p>
-          <ul>
-            <li>
-              <pre><code class="language-javascript">$('a').bind('click', myHandler);</code></pre>
-              <pre><code class="language-javascript">$('a').on('click', myHandler);</code></pre>
-            </li>
-            <li>
-              <pre><code class="language-javascript">$('form').bind('submit', { val: 42 }, fn);</code></pre>
-              <pre><code class="language-javascript">$('form').on('submit', { val: 42 }, fn);</code></pre>
-            </li>
-            <li>
-              <pre><code class="language-javascript">$(window).unbind('scroll.myPlugin');</code></pre>
-              <pre><code class="language-javascript">$(window).off('scroll.myPlugin');</code></pre>
-            </li>
-          </ul>
+
+        <article id="init" class="step" data-x="0" data-y="1300" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>colorbox.init.js</h1>
+          <pre><code class="language-javascript">$(document).ready(function() {
+
+  var links = $('a.modal');
+  if(links.length) {
+    Modernizr.load([{
+      test: (typeof colorbox == 'function'),
+      nope: [
+        '/third-party/colorbox/colorbox.css',
+        '/third-party/colorbox/colorbox.js'
+      ],
+      complete: function() {
+        links.colorbox();
+      }
+    }]);
+  }
+});</code></pre>
         </article>
 
+        <article id="app" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>application.js</h1>
+          <pre><code class="language-javascript">$(document).ready(function() {
+Modernizr.load([
+  '/js/partials/colorbox.init.js',
+]);</code></pre>
+        </article>
+
+        <article id="oop" class="step" data-x="-1500" data-y="0" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>OOP</h1>
+          <pre><code class="language-javascript">
+var Person = function() {
+  this.firstname: null;
+  this.lastname: null;
+  this.age: null;
+}
+Person.prototype.getFirstname = function() { return this.firstname; };
+Person.prototype.getLastname  = function() { return this.firstname; };
+Person.prototype.getAge       = function() { return this.firstname; };
+
+Person.prototype.setFirstname = function(value) { this.firstname = value; };
+Person.prototype.setLastname  = function(value) { this.firstname = value; };
+Person.prototype.setAge       = function(value) { this.firstname = value; };
+
+Person.prototype.sayHello     = function() { return 'Hello, ' + this.getFirstname; };
+</code></pre>
+          <pre><code class="language-javascript">var person = new Person();
+person.setFirstname('Alex');
+alert(person.sayHello()); // Hello Alex</code></pre>
+        </article>
+
+        <article id="plugins-1" class="step" data-x="-1500" data-y="800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Weniger Funktionen, mehr Plugins</h1>
+          <pre><code class="language-javascript">$('#select-all').click(function(e) {
+  if($(this).is(':checked')) {
+    $(this).parents('table').find('.select-item').attr('checked', 'checked');
+  }
+  else {
+    $(this).parents('table').find('.select-item').removeAttr('checked');
+  }
+});</code></pre>
+        </article>
+
+        <article id="plugins-1" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
+          <h1>Weniger Funktionen, mehr Plugins <a href="https://github.com/alexander-bogomolov/checkboxToggleizr/blob/master/jquery.checkboxToggleizr.js">GitHub</a></h1>
+          <img src="images/05/jquery-plugin.png" title="" alt="" />
+        </article>
+
+<!--
         <article id="on-off-2" class="step" data-x="3000" data-y="800" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="5" data-rotate-y="10">
           <ul>
             <li>
@@ -178,11 +181,7 @@ links.css('color', 'red');</code></pre>
             </li>
           </ul>
           <h2>Grund</h2>
-          <pre><code class="language-java">return $.fn.myPlugin = function(options) {
-  return this.each(function() {
-    return new $.myPlugin(this, options);
-  })
-}</code></pre>
+
         </article>
 
         <article id="ausblick" class="step" data-x="5000" data-y="800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
@@ -193,7 +192,7 @@ links.css('color', 'red');</code></pre>
             <li>Schlanker & Schneller</li>
           </ul>
         </article>
-<!--
+
         <article id="sprites" class="step" data-x="5000" data-y="1600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
           <h1>Sprites</h1>
           <h2>SCSS</h2>
@@ -208,7 +207,6 @@ links.css('color', 'red');</code></pre>
   height: 16px;
 }</code></pre>
         </article>
--->
         <article id="links" class="step" data-x="-3000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
           <h1>Links</h1>
           <ul>
@@ -218,6 +216,7 @@ links.css('color', 'red');</code></pre>
             <li><a href="http://blog.jquery.com/2012/07/01/jquery-1-9-and-2-0-tldr-edition/">jQuery 1.9 and 2.0 — TL;DR Edition</a></li>
           </ul>
         </article>
+-->
 
         <article id="danke" class="step" data-x="0" data-y="-2500" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
           <h1>Vielen Dank!</h1>
