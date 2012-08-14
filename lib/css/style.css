@@ -44,9 +44,10 @@ pre {
 }
 
 pre code {
-  font-size: .3em;
+  font-size: .4em;
   text-wrap: break-word;
   margin: 10px 0 25px 0;
+  line-height: 1.6em;
 }
 
 sub {

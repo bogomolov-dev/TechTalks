@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS3 Basics » Alexander Bogomolov</title>
+
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+    <meta name="author" content="Alexander Bogomolov" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="lib/css/impress-js.css" rel="stylesheet" />
+    <link href="lib/css/style.css" rel="stylesheet" />
+    <link href="lib/plugins/highlight/styles/default.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <section id="presentation">
+      <header>
+        <progress id="presentation-progress" max="10" value="1"></progress>
+      </header>
+
+      <div id="impress" class="impress-not-supported">
+
+        <article id="intro" class="step" data-x="0" data-y="0" data-scale="1">
+          <h1>Übersicht</h1>
+          <ul>
+            <li>jQuery allgemein</li>
+          </ul>
+        </article>
+
+
+        <article id="allgemeines" class="step" data-x="1500" data-y="0" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
+          <h1>jQuery allgemein</h1>
+          <ul>
+            <li>Immer die aktuelle Version verwenden! (v. 1.8.0)</li>
+            <li>JavaScript immer vor <var>&lt;/body&gt;</var> einfügen</li>
+            <li>
+              CDN verwenden (Google / jQuery)
+              <pre><code class="language-html">&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+            </li>
+            <li>
+              Möglichst einfache Selektoren verwenden
+              <pre><code class="language-javascript">var e = $('.class .subclass');
+var e2 = $('#faster-selector');</code></pre>
+            </li>
+            <li>$ ist auch nur eine Variable!</li>
+          </ul>
+        </article>
+
+
+        <article id="cache-chaining" class="step" data-x="0" data-y="1300" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Variablem immer cachen!</h1>
+          <pre><code class="language-javascript">$(this).show();
+$(this).css('color', 'red);
+$(this).text('Sooo slow');</code></pre>
+
+          <pre><code class="language-javascript">var e = $(this).show();
+e.css('color', 'red);
+e.text('Sooo slow');</code></pre>
+
+          <h1>Noch besser: Chaining</h1>
+          <pre><code class="language-javascript">var e = $('#selector').show().css('color', 'red).text('Sooo slow');</code></pre>
+
+          <p>Fast alle Methoden geben das Object zurück.</p>
+        </article>
+
+        <article id="styling" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Möglichst kein Styling über JS</h1>
+          <pre><code class="language-javascript">$(this).css({color: 'red', backgroundColor: 'green'})</code></pre>
+
+          <h1>Ändere die CSS-Klassen</h1>
+          <pre><code class="language-javascript">$(this).addClass('active')</code></pre>
+          <p>Die Wartbarkeit steigt, da man alle Anpassungen im CSS vornehmen kann.</p>
+        </article>
+
+        <article id="data" class="step" data-x="-1500" data-y="0" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Das class-Attribut ist <strong>kein</strong> Speicher für Daten</h1>
+          <p>Dafür gibt es das HTML5 Attribut data-*</p>
+          <pre><code class="language-html">&lt;a id="pass-data" href="/post/data" data-object-id="5"&gt;Click me!&lt;/a&gt;</code></pre>
+          <pre><code class="language-javascript">var object_id = $('#pass-data').data('object-id');</code></pre>
+        </article>
+
+        <article id="tipps-1" class="step" data-x="-1500" data-y="800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Tipps</h1>
+          <ul>
+            <li>Setze Klassen mit dem <em>js-</em> Prefix, wenn die Klasse nur für die Funktion verwendet wird.</li>
+            <li>
+              Sandardverhalten unterbinden:
+              <pre><code class="language-javascript">event.preventDefault();</code></pre>
+            </li>
+            <li>
+              Beides ist das gleiche:
+              <pre><code class="language-javascript">$(document).ready(function() { // code here });</code></pre>
+              <pre><code class="language-javascript">$(function() { // code here });</code></pre>
+            </li>
+          </ul>
+        </article>
+
+        <article id="on-off-1" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
+          <h1>Neue Event APIs: <var>.on()</var> und <var>.off()</var> (ab V1.7)</h1>
+          <p><var>.on()</var> ersetzt dabei gleich mehrere Event APIs:</p>
+          <ul>
+            <li>
+              <pre><code class="language-javascript">$('a').bind('click', myHandler);</code></pre>
+              <pre><code class="language-javascript">$('a').on('click', myHandler);</code></pre>
+            </li>
+            <li>
+              <pre><code class="language-javascript">$('form').bind('submit', { val: 42 }, fn);</code></pre>
+              <pre><code class="language-javascript">$('form').on('submit', { val: 42 }, fn);</code></pre>
+            </li>
+            <li>
+              <pre><code class="language-javascript">$(window).unbind('scroll.myPlugin');</code></pre>
+              <pre><code class="language-javascript">$(window).off('scroll.myPlugin');</code></pre>
+            </li>
+          </ul>
+        </article>
+
+        <article id="on-off-2" class="step" data-x="3000" data-y="800" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="5" data-rotate-y="10">
+          <ul>
+            <li>
+              <pre><code class="language-javascript">$('.comment').delegate('a.add', 'click', addNew);</code></pre>
+              <pre><code class="language-javascript">$('.comment').on('click', 'a.add', addNew);</code></pre>
+            </li>
+            <li>
+              <pre><code class="language-javascript">$('.dialog').undelegate('a', 'click.myDlg');</code></pre>
+              <pre><code class="language-javascript">$('.dialog').off('click.myDlg', 'a');</code></pre>
+            </li>
+            <li>
+              <pre><code class="language-javascript">$('a').live('click', fn);</code></pre>
+              <pre><code class="language-javascript">$(document).on('click', 'a', fn);</code></pre>
+            </li>
+            <li>
+              <pre><code class="language-javascript">$('a').die('click');</code></pre>
+              <pre><code class="language-javascript">$(document).off('click', 'a');</code></pre>
+            </li>
+          </ul>
+        </article>
+
+        <article id="on-off-3" class="step" data-x="3000" data-y="1800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <img src="images/04/jquery-performance-on-event-api.png" title="" alt="" />
+          <aside>
+            <ol>
+              <li><a href="http://blog.jquery.com/2011/11/03/jquery-1-7-released/" title="">JQUERY 1.7 RELEASED</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="wissenswertes-1" class="step" data-x="3000" data-y="2800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Wissenswertes</h1>
+          <ul>
+            <li><var>jQuery.isNumeric()</var></li>
+            <li>
+              <var>.find()</var> ist schneller als komplexe Selektoren
+              <pre><code class="language-javascript">var e = $('#id p');
+var v = $('#id').find('p'); // bis zu 2x schneller</code></pre>
+            </li>
+            <li>
+              Event delegation:
+              <pre><code class="language-javascript">$('table').on('click','td',function() {
+$(this).toggleClass('active');
+});</code></pre>
+            </li>
+          </ul>
+
+        </article>
+
+        <article id="wissenswertes-2" class="step" data-x="5000" data-y="0" data-z="0" data-scale="1" data-rotate="-10" data-rotate-x="0" data-rotate-y="0">
+          <ul>
+            <li>
+              Die meisten Methoden haben bereits eine Schleife in der Implementierung:
+              <pre><code class="language-javascript">var links = $('a');
+links.each(function() {
+  $(this).css('color', 'red');
+})</code></pre>
+              <pre><code class="language-javascript">var links = $('a');
+links.css('color', 'red');</code></pre>
+            </li>
+          </ul>
+          <h2>Grund</h2>
+          <pre><code class="language-java">return $.fn.myPlugin = function(options) {
+  return this.each(function() {
+    return new $.myPlugin(this, options);
+  })
+}</code></pre>
+        </article>
+
+        <article id="ausblick" class="step" data-x="5000" data-y="800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>jQuery 1.9 & 2.0</h1>
+          <ul>
+            <li>jQuery 2.0 - Kein Support für IE 6/7/8</li>
+            <li>Modular</li>
+            <li>Schlanker & Schneller</li>
+          </ul>
+        </article>
+<!--
+        <article id="sprites" class="step" data-x="5000" data-y="1600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Sprites</h1>
+          <h2>SCSS</h2>
+          <pre><code class="language-css">@import "icon/*.png";
+@import all-icon-sprites($dimensions:true);</code></pre>
+
+          <h2>CSS</h2>
+          <pre><code class="language-css">.icon-sprite, .icon-minus { background: url('images/icon-sd6115b5d.png') no-repeat; }
+.icon-minus {
+  background-position: 15px 255px;
+  width: 16px;
+  height: 16px;
+}</code></pre>
+        </article>
+-->
+        <article id="links" class="step" data-x="-3000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Links</h1>
+          <ul>
+            <li><a href="http://oscarotero.com/jquery/">jQuery Quick API Reference</a></li>
+            <li><a href="http://jqfundamentals.com/">jQuery Fundamentals </a></li>
+            <li><a href="http://www.developerdrive.com/2011/12/switch-on-with-jquerys-new-event-methods/">Switch on With jQuery’s New Event Methods</a></li>
+            <li><a href="http://blog.jquery.com/2012/07/01/jquery-1-9-and-2-0-tldr-edition/">jQuery 1.9 and 2.0 — TL;DR Edition</a></li>
+          </ul>
+        </article>
+
+        <article id="danke" class="step" data-x="0" data-y="-2500" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Vielen Dank!</h1>
+          <img id="me" src="lib/images/me.jpg" alt="Alexander Bogomolov" />
+          <ul class="clear">
+            <li><a href="http://www.twitter.de/abogomolov" title="Alexander auf Twitter">@abogomolov</a></li>
+            <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogmolov</a></li>
+          </ul>
+
+        </article>
+
+        <article id="overview" class="step" data-x="500" data-y="500" data-scale="10"></article>
+
+      </div>
+      <footer>Alexander Bogomolov - <span class="eos-color">EOS</span> UPTRADE GmbH</footer>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="lib/js/impress.js"></script>
+    <script src="lib/plugins/highlight/highlight.pack.js"></script>
+    <script src="lib/js/scripts.js"></script>
+  </body>
+</html>
