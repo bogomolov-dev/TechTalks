@@ -82,17 +82,17 @@ Modernizr.load([
           <h1>OOP</h1>
           <pre><code class="language-javascript">
 var Person = function() {
-  this.firstname: null;
-  this.lastname: null;
-  this.age: null;
+  this.firstname = null;
+  this.lastname = null;
+  this.age = null;
 }
 Person.prototype.getFirstname = function() { return this.firstname; };
-Person.prototype.getLastname  = function() { return this.firstname; };
-Person.prototype.getAge       = function() { return this.firstname; };
+Person.prototype.getLastname  = function() { return this.lastname; };
+Person.prototype.getAge       = function() { return this.age; };
 
 Person.prototype.setFirstname = function(value) { this.firstname = value; };
-Person.prototype.setLastname  = function(value) { this.firstname = value; };
-Person.prototype.setAge       = function(value) { this.firstname = value; };
+Person.prototype.setLastname  = function(value) { this.lastname = value; };
+Person.prototype.setAge       = function(value) { this.age = value; };
 
 Person.prototype.sayHello     = function() { return 'Hello, ' + this.getFirstname; };
 </code></pre>
@@ -223,7 +223,7 @@ links.css('color', 'red');</code></pre>
           <img id="me" src="lib/images/me.jpg" alt="Alexander Bogomolov" />
           <ul class="clear">
             <li><a href="http://www.twitter.de/abogomolov" title="Alexander auf Twitter">@abogomolov</a></li>
-            <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogmolov</a></li>
+            <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogomolov</a></li>
           </ul>
 
         </article>
@@ -235,7 +235,7 @@ links.css('color', 'red');</code></pre>
     </section>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="lib/js/impress.js"></script>
     <script src="lib/plugins/highlight/highlight.pack.js"></script>
     <script src="lib/js/scripts.js"></script>
