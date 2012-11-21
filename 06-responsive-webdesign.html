@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML5 Basics » Alexander Bogomolov</title>
+
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+    <meta name="author" content="Alexander Bogomolov" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="lib/css/impress-js.css" rel="stylesheet" />
+    <link href="lib/css/style.css" rel="stylesheet" />
+    <link href="lib/plugins/highlight/styles/default.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <section id="presentation">
+      <header>
+        <progress id="presentation-progress" max="10" value="1"></progress>
+      </header>
+
+      <div id="impress" class="impress-not-supported">
+
+        <article id="intro" class="step" data-x="0" data-y="0" data-scale="1">
+          <h1>Responsive Webdesign</h1>
+          <p>Möglich die Website auf verschiedenen Geräten optimiert darzustellen</p>
+        </article>
+
+        <article id="html5please" class="step" data-x="-4000" data-y="0" data-z="0" data-scale="1" data-rotate="270" data-rotate-x="0" data-rotate-y="0">
+          <h1>Es kann nicht überall gleich aussehen</h1>
+          <img src="images/06/web-devices-now.jpeg" alt="" />
+          <aside>
+            <ul>
+              <li><a href="http://maddesigns.de/responsive-typo3/" title="">Quelle</a></li>
+            </ul>
+          </aside>
+        </article>
+
+        <article id="voraussetzungen" class="step" data-x="1500" data-y="0" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Voraussetzungen</h1>
+          <h2>Bestehende Seite</h2>
+          <ul>
+            <li>saubere Struktur</li>
+            <li>weniger Komplexe Seiten</li>
+            <li>keine überladene Seiten</li>
+          </ul>
+          <h2>Neue Seite</h2>
+          <ul>
+            <li>GRID!</li>
+            <li>Tools (<a href="http://sass-lang.com/" title="Syntactically Awesome Stylesheets">Sass</a>, <a href="http://compass-style.org/" title="Extension for Sass">Compass</a>, Frameworks)</li>
+          </ul>
+        </article>
+
+        <article id="ansaetze" class="step" data-x="-5000" data-y="0" data-z="0" data-scale="1" data-rotate="270" data-rotate-x="0" data-rotate-y="0">
+          <h1>Ansätze</h1>
+          <ul>
+            <li>Mobile First</li>
+            <li>Content First</li>
+            <li>Desktop</li>
+          </ul>
+        </article>
+
+        <article id="workflow-frueher" class="step" data-x="0" data-y="-1300" data-z="0" data-scale="1" data-rotate="85" data-rotate-x="0" data-rotate-y="0">
+          <h1>Workflow (früher)</h1>
+          <ol>
+            <li>Planungsphase (Ideen, Skizzen, Sitemaps, Wireframes)</li>
+            <li>Layouts erstellen</li>
+            <li>Templates erstellen</li>
+            <li>Online stellen</li>
+          </ol>
+        </article>
+
+        <article id="workflow-frueher-nachteile" class="step" data-x="-1000" data-y="-1300" data-z="0" data-scale="1" data-rotate="95" data-rotate-x="0" data-rotate-y="0">
+          <h1>Nachteile</h1>
+          <ul>
+            <li>Pro Breakpoint eine Vorlage (3 – 4 Entwürfe pro Template!)</li>
+            <li>Entwurf sollen 1:1 umgesetzt werden</li>
+            <li>Ohne Tests ist es nur sehr schwer die richtigen Breakpoints zu finden</li>
+          </ul>
+        </article>
+
+        <article id="workflow-responsive-webdesign" class="step" data-x="-2000" data-y="-1300" data-z="0" data-scale="1" data-rotate="85" data-rotate-x="0" data-rotate-y="0">
+          <h1>Neue strukturierende Elemente</h1>
+          <ul>
+            <li>Designentscheidungen verlagern sich in den Entwicklungsprozess</li>
+            <li>Gleich mit HTML-Prototypen beginnen</li>
+            <li>Design- und Entwicklungsphase stärker verzahnen</li>
+            <li>Ständiger Dialog zwischen Designer und Entwickler</li>
+            <li>Möglichst gleich mit echten Inhalten arbeiten</li>
+          </ul>
+        </article>
+
+        <article id="workflow-responsive-webdesign-planung" class="step" data-x="1000" data-y="-1300" data-z="0" data-scale="1" data-rotate="-98" data-rotate-x="0" data-rotate-y="0">
+          <h1>Planen</h1>
+          <ul>
+            <li>Grundlegende Inhaltsstruktur und Funktionalität der Website planen und skizzieren</li>
+            <li>Zentralen Inhalte herausarbeiten</li>
+          </ul>
+        </article>
+
+        <article id="workflow-responsive-webdesign-prototyping" class="step" data-x="2000" data-y="-1300" data-z="0" data-scale="1" data-rotate="-84" data-rotate-x="0" data-rotate-y="0">
+          <h1>Prototyp entwickeln & Gestalten</h1>
+          <h2>Prototyp entwickeln</h2>
+          <ul>
+            <li>Ersten HTML-Dummy entwickeln</li>
+            <li>Ausgangsbasis ist die linearisierte Form der Inhalte</li>
+          </ul>
+          <h2>Gestalten</h2>
+          <ul>
+            <li>Gestaltungsansätze ausarbeiten (flexibles Gestaltungraster, Farbschema, Schriftwahl)</li>
+          </ul>
+        </article>
+
+        <article id="workflow-responsive-webdesign-testen" class="step" data-x="5000" data-y="-1300" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Wiederholen und Testen</h1>
+          <ul>
+            <li>Entwickler und Designer verbessern in wiederholenden Zyklen</li>
+            <li>Mit verschiedenen Geräten und Bildschirmgrößen testen</li>
+          </ul>
+        </article>
+
+        <article id="workflow-responsive-webdesign-ausliefern" class="step" data-x="4200" data-y="-1300" data-z="0" data-scale="1" data-rotate="-90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Ausliefern</h1>
+        </article>
+
+        <article id="layoutmuster" class="step" data-x="0" data-y="1000" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Layoutmuster</h1>
+          <ul>
+            <li>Überwiegend flüssiges Layout</li>
+            <li>Spalten verschieben</li>
+            <li>Layout umschalten</li>
+            <li>Kleine Änderungen</li>
+            <li>Off Canvas</li>
+          </ul>
+        </article>
+
+        <article id="layoutmuster-ueberwiegend-fluessiges-layout" class="step" data-x="0" data-y="1800" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Überwiegend flüssiges Layout</h1>
+          <ul>
+            <li>Meist ein Umbruchpunkt</li>
+            <li>Layout wird einfach vergrößert</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a target="_blank" href="http://mediaqueri.es/pea/">Beispiel</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="layoutmuster-spalten-verschieben" class="step" data-x="0" data-y="2600" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Spalten verschieben</h1>
+          <ul>
+            <li>Desktop- Layout ist komplett mehrspaltig aufgebaut</li>
+            <li>Spalten sind in der mobilen Version untereinander</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a target="_blank" href="http://mediaqueri.es/owl/">Beispiel</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="layoutmuster-layout-umschalten" class="step" data-x="3000" data-y="0" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="10" data-rotate-y="5">
+          <h1>Layout umschalten</h1>
+          <ul>
+            <li>Navigation wird umgestaltet (geändert)</li>
+            <li>Jedes Element wird genau geprüft</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a target="_blank" href="http://mediaqueri.es/fse/">Beispiel</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="layoutmuster-kleine-aenderungen" class="step" data-x="3000" data-y="600" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="5" data-rotate-y="10">
+          <h1>Kleine Änderungen</h1>
+          <ul>
+            <li>Nur bei sehr schlichten Websites umsetzbar</li>
+            <li>Breite wird lediglich angepasst</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a target="_blank" href="http://mediaqueri.es/ff/">Beispiel</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="layoutmuster-off-canvas" class="step" data-x="3000" data-y="1400" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Off Canvas</h1>
+          <ul>
+            <li>Keine Umbrüche</li>
+            <li>Elemente werden außerhalb der Bildfläche geschoben</li>
+          </ul>
+          <aside>
+            <ol>
+              <li><a target="_blank" href="http://www.lukew.com/ff/entry.asp?1569">Beispiel</a></li>
+            </ol>
+          </aside>
+        </article>
+
+        <article id="media-queries" class="step" data-x="-1300" data-y="1000" data-z="0" data-scale="0.5" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Media Queries</h1>
+          <pre><code class="language-css">@media screen and (max-device-width: 1024px) {}</code></pre>
+          <pre><code class="language-css">@media screen and (min-width: 700px) , (min-height: 44em) {}</code></pre>
+        </article>
+
+        <article id="breakpoints" class="step" data-x="-3500" data-y="4250" data-z="0" data-scale="0.01" data-rotate="45" data-rotate-x="0" data-rotate-y="0">
+          <h1>Breakpoints</h1>
+          <img src="images/06/web-devices.png" alt="" />
+          <aside>
+            <ul>
+              <li><a href="http://bradfrostweb.com/blog/web/responsive-web-design-missing-the-point/" title="">Quelle</a></li>
+            </ul>
+          </aside>
+        </article>
+
+        <article id="navigation" class="step" data-x="-3000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Navigation</h1>
+          <ul>
+            <li><a href="http://colbowdesign.com/">Top-Navigation</a></li>
+            <li>Footer-Navigation</li>
+            <li><a href="http://fortysevenmedia.com">Icon-Navigation</a></li>
+            <li><a href="http://designintellection.com/">Select-Menü</a></li>
+            <li><a href="http://www.starbucks.de">Toggle-Menü</a></li>
+            <li><a href="http://www.kaemingk.com/de">Off Canvas</a></li>
+          </ul>
+        </article>
+
+        <article id="bilder" class="step" data-x="3000" data-y="2800" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Bilder</h1>
+          <ul>
+            <li>Bilder einfach anpassen</li>
+            <li>Adaptive Images</li>
+            <li>Responsive Enhance</li>
+            <li>Retina-Displays</li>
+          </ul>
+          <aside>
+            <ul>
+              <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Al0lI17fOl9DdDgxTFVoRzFpV3VCdHk2NTBmdVI2OXc#gid=0">Responsive Images Chart</a></li>
+            </ul>
+          </aside>
+        </article>
+
+        <article id="bilder-anpassen" class="step" data-x="5000" data-y="0" data-z="0" data-scale="1" data-rotate="-10" data-rotate-x="0" data-rotate-y="0">
+          <h1>Bilder einfach anpassen</h1>
+          <pre><code class="language-css">img {
+  height: auto;
+  max-width: 100%;
+}</code></pre>
+        </article>
+
+        <article id="bilder-adaptive-images" class="step" data-x="5000" data-y="800" data-z="0" data-scale="1" data-rotate="5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Adaptive Images</h1>
+          <ul>
+            <li>PHP5, GD, ModRewrite</li>
+            <li>Cookie</li>
+            <li>Bilder werden über ein PHP-Script gejagt</li>
+          </ul>
+        </article>
+
+        <article id="bilder-responsive-enhance" class="step" data-x="5000" data-y="1600" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Responsive Enhance</h1>
+          <ul>
+            <li>Mobile-First Konzept</li>
+            <li>Bild wird per JS ausgewechselt</li>
+          </ul>
+          <pre><code class="language-html">&lt;img src="img/klein.jpg" data-fullsrc="gross.jpg" /&gt;</code></pre>
+        </article>
+
+        <article id="bilder-retina-displays" class="step" data-x="-2500" data-y="5000" data-z="0" data-scale="5" data-rotate="45" data-rotate-x="0" data-rotate-y="0">
+          <h1>HTML5</h1>
+          <h2>srcset</h2>
+          <pre><code class="language-html">&lt;img src="img/fallback.jpg" srcset="image-medium.jpg 800w 400h 1x, image-small.jpg 600w 300h 1x" /&gt;</code></pre>
+          <h2>picture</h2>
+          <pre><code class="language-html">&lt;picture alt=""&gt;
+  &lt;source src="img/mobile.jpg" /&gt;
+  &lt;source src="img/medium.jpg" media="min-width: 600px" /&gt;
+  &lt;source src="img/full.jpg" media="min-width: 900px" /&gt;
+  &lt;img src="img/fallback.jpg" alt="" /&gt;
+&lt;/picture&gt;</code></pre>
+        </article>
+
+        <article id="moeglichkeiten" class="step" data-x="-1300" data-y="1500" data-z="0" data-scale="1" data-rotate="0" data-rotate-x="0" data-rotate-y="0">
+          <h1>Möglichkeiten</h1>
+          <ul>
+            <li><a href="https://github.com/filamentgroup/AppendAround">AppendArround</a></li>
+            <li>Inhalte beschneiden</li>
+            <li><a href="https://github.com/thepeg/MediaTable">MediaTable</a></li>
+          </ul>
+        </article>
+
+        <article id="projekt-struktur-1" class="step" data-x="3000" data-y="2000" data-z="0" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Projektstruktur</h1>
+          <ul class="nested smaller">
+            <li>build-scripts/</li>
+            <li>images/</li>
+            <li><small><em>third-party/</em></small></li>
+            <li>js/</li>
+            <li><small><em>css/</em></small></li>
+            <li>sass/
+              <ul>
+                <li>partials/</li>
+                <li>widgets/</li>
+                <li>_variables.scss</li>
+                <li>style.scss</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article id="projekt-struktur-2" class="step" data-x="3000" data-y="2000" data-z="-5000" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Sass</h1>
+          <ul class="nested smaller">
+            <li>sass/
+              <ul>
+                <li>partials/
+                  <ul>
+                    <li>_basics.scss</li>
+                    <li>_header.scss</li>
+                    <li>_footer.scss</li>
+                  </ul>
+                </li>
+                <li>widgets/
+                  <ul>
+                    <li>_widget-tabs.scss</li>
+                    <li>_widget-slider.scss</li>
+                  </ul>
+                </li>
+                <li>_variables.scss</li>
+                <li>style.scss</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article id="projekt-struktur-3" class="step" data-x="3000" data-y="2000" data-z="-10000" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>Third-Party</h1>
+          <ul class="nested smaller">
+            <li>third-party/
+              <ul>
+                <li>bootstrap-sass/
+                  <ul>
+                    <li>...</li>
+                    <li>lib/
+                      <ul>
+                        <li>...</li>
+                        <li>_buttons.scss/</li>
+                        <li>_dropdowns.scss</li>
+                        <li>_forms.scss</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+
+        <article id="projekt-struktur-4" class="step" data-x="3000" data-y="2000" data-z="-15000" data-scale="1" data-rotate="-5" data-rotate-x="0" data-rotate-y="0">
+          <h1>style.scss</h1>
+          <pre><code class="language-css">@import "../../third-party/bootstrap-sass/lib/variables";
+@import 'variables'; /* Überschreiben von Bootstrap Vars */
+
+@import "../../third-party/bootstrap-sass/lib/mixins";
+@import "../../third-party/bootstrap-sass/lib/reset";
+@import "../../third-party/bootstrap-sass/lib/scaffolding";
+@import "../../third-party/bootstrap-sass/lib/grid";
+@import "../../third-party/bootstrap-sass/lib/layouts";
+
+/* Unser Zeug */
+@import "partials/basics";
+@import "partials/header";
+@import "partials/footer";
+
+/* Unsere Widgets */
+@import "widgets/widget-slider";</code></pre>
+        </article>
+
+        <!--
+        <article id="links" class="step" data-x="-6000" data-y="0" data-z="0" data-scale="1" data-rotate="90" data-rotate-x="0" data-rotate-y="0">
+          <h1>Links<sub>1</sub></h1>
+          <ul>
+            <li><a href="http://html5please.us/">HTML5 Please</a></li>
+            <li><a href="http://caniuse.com/">When can I use...</a></li>
+            <li><a href="http://www.findmebyip.com/">HTML5 & CSS3 Support</a></li>
+            <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+            <li><a href="http://code.google.com/p/html5shiv/">html5shiv</a></li>
+            <li><a href="http://www.modernizr.com/">Modernizr/</a></li>
+            <li><a href="http://schema.org/docs/full.html">schema.org</a></li>
+          </ul>
+        </article>
+        -->
+
+
+
+        <article id="danke" class="step" data-x="0" data-y="-2500" data-z="0" data-scale="1" data-rotate="180" data-rotate-x="0" data-rotate-y="0">
+          <h1>Vielen Dank!</h1>
+          <img id="me" src="lib/images/me.jpg" alt="Alexander Bogomolov" />
+          <ul class="clear">
+            <li><a href="http://www.twitter.de/abogomolov" title="Alexander auf Twitter">@abogomolov</a></li>
+            <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogomolov</a></li>
+          </ul>
+        </article>
+
+        <article id="overview" class="step" data-x="500" data-y="500" data-scale="12"></article>
+
+      </div>
+      <footer>Alexander Bogomolov - <span class="eos-color">EOS</span> UPTRADE GmbH <span id="version">v. 1.0</span></footer>
+    </section>
+
+
+    <script src="lib/js/impress.js"></script>
+    <script src="lib/plugins/highlight/highlight.pack.js"></script>
+    <script src="lib/js/scripts.js"></script>
+  </body>
+</html>

@@ -56,6 +56,10 @@ sub {
   margin-top: 5px;
 }
 
+small {
+  font-size: .8em;
+}
+
 blockquote {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
@@ -109,6 +113,14 @@ ul li, ol li {
   margin-bottom: 25px;
 }
 
+ul.smaller, ol.smaller  {
+  font-size: .7em;
+}
+
+ul.smaller li, ol.smaller li {
+  margin-bottom: 10px;
+}
+
 ul li:before {
   position: absolute;
   left: 10px;
@@ -137,3 +149,14 @@ ul.floating li:before {
 ul.top li {vertical-align: top;}
 ul.middle li {vertical-align: middle;}
 ul.bottom li {vertical-align: bottom;}
+
+ul.nested ul {
+  margin-left: 30px;
+}
+
+
+ul.nested ul li:before {
+  position: absolute;
+  left: 40px;
+  content: '\00bb\00a0';
+}
