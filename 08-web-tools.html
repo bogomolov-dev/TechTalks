@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Tools » Alexander Bogomolov</title>
+
+  <meta name="description"
+        content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+  <meta name="author" content="Alexander Bogomolov" />
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+        rel="stylesheet" />
+
+  <link href="lib/css/impress-js.css" rel="stylesheet" />
+  <link href="lib/css/style.css" rel="stylesheet" />
+  <link href="lib/plugins/highlight/styles/default.css" rel="stylesheet" />
+</head>
+<body>
+
+<section id="presentation">
+<header>
+  <progress id="presentation-progress" max="10" value="1"></progress>
+</header>
+
+<div id="impress" class="impress-not-supported">
+
+<article id="intro" class="step" data-x="0" data-y="0" data-scale="1">
+  <h1>Tools</h1>
+
+  <p>Sass, Compass, Bower, Grunt</p>
+</article>
+
+<article id="sacc-compass" class="step" data-x="-4000" data-y="0" data-z="1" data-scale="1" data-rotate="270"
+         data-rotate-x="0" data-rotate-y="0">
+  <h1>Sass / Compass <a href="03-sass-compass.html" title="">+</a></h1>
+  <h2>dev</h2>
+  <pre><code class="language-ruby">
+    http_path = "/"
+    css_dir = "../assets/css/dev"
+    sass_dir = "../assets/sass"
+    images_dir = "../assets/images"
+    javascripts_dir = "../assets/js"
+    # output_style = :expanded
+    # line_comments = true
+  </code></pre>
+  <h2>prod</h2>
+  <pre><code class="language-ruby">
+    output_style = :compressed
+    line_comments = false
+  </code></pre>
+</article>
+
+<article id="bower"
+         class="step"
+         data-x="1500"
+         data-y="0"
+         data-z="2"
+         data-scale="1"
+         data-rotate="-90"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Bower</h1>
+  <h2>A package manager for the web</h2>
+  <pre><code class="language-ruby">bower install</code></pre>
+  <pre><code class="language-ruby">bower install &lt;package&gt;</code></pre>
+  <pre><code class="language-ruby">bower install &lt;package&gt;#&lt;version&gt;</code></pre>
+  <pre><code class="language-ruby">bower install &lt;name&gt;=&lt;package&gt;#&lt;version&gt;</code></pre>
+
+  <aside>
+    <ol>
+      <li><a target="_blank" href="http://bower.io/">Bower</a></li>
+      <li><a target="_blank" href="http://sindresorhus.com/bower-components/">Bower components</a></li>
+    </ol>
+  </aside>
+</article>
+
+<article id="bower-json"
+         class="step"
+         data-x="-5000"
+         data-y="0"
+         data-z="3"
+         data-scale="1"
+         data-rotate="270"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>bower.json (component.json)</h1>
+  <pre><code class="language-json">
+  {
+    "name":         "Urlaubsplan",
+    "version":      "1.4.1",
+    "dependencies": {
+      "bootstrap-sass":    "3.*",
+      "html5shiv":         "3.*"
+    }
+  }
+  </code></pre>
+  <pre><code class="language-ruby">bower install</code></pre>
+  oder
+  <pre><code class="language-ruby">bower update</code></pre>
+</article>
+
+<article id="grunt-install"
+         class="step"
+         data-x="0"
+         data-y="-1300"
+         data-z="4"
+         data-scale="1"
+         data-rotate="85"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Grunt (Installation)</h1>
+  <pre><code class="language-ruby">
+  npm install -g grunt-cli
+  npm init
+  </code></pre>
+  <h2>Plugins</h2>
+  <p>Es gibt für (fast) alles ein Plugin!</p>
+  <pre><code class="language-ruby">
+    npm install grunt --save-dev
+    npm install grunt-contrib-compass --save-dev
+    npm install grunt-contrib-jshint --save-dev
+    npm install grunt-contrib-concat --save-dev
+    npm install grunt-contrib-watch --save-dev
+    [...]</code></pre>
+  <aside>
+    <ol>
+      <li><a target="_blank" href="http://gruntjs.com/plugins">Plugins</a></li>
+    </ol>
+  </aside>
+</article>
+
+<article id="grunt-config-1"
+         class="step"
+         data-x="-1000"
+         data-y="-1300"
+         data-z="5"
+         data-scale="1"
+         data-rotate="95"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Grunt - Gruntfile.js</h1>
+  <pre><code class="language-json">
+  module.exports = function (grunt) {
+    // Project configuration
+    grunt.initConfig({
+      pkg:     grunt.file.readJSON('package.json'),
+
+      // Compass
+      // Define configuration for the compass module: grunt-contrib-compass
+      compass: {
+        dev:  {
+          options: {
+          config: 'compass-config-dev.rb'
+        }
+      },
+    });
+
+    // Load modules
+    grunt.loadNpmTasks('grunt-contrib-compass');
+
+    // Register Tasks
+    grunt.registerTask('css-dev', ['compass:dev']);
+  };</code></pre>
+</article>
+
+<article id="grunt-config-2" class="step" data-x="-2000" data-y="-1300" data-z="6" data-scale="1" data-rotate="85"
+         data-rotate-x="0" data-rotate-y="0">
+  <h1>Grunt - package.json</h1>
+  <pre><code class="language-json">
+    {
+      "title": "eos new media GmbH & co. KG",
+      "project_version": "0.1",
+      "homepage": "http://www.eosnewmedia.de",
+      "author": {
+        "name": "Alexander Bogomolov"
+      },
+      "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-compass": "~0.6.0"
+      }
+    }</code></pre>
+
+</article>
+
+<article id="grunt-config-3"
+         class="step"
+         data-x="1000"
+         data-y="-1300"
+         data-z="7"
+         data-scale="1"
+         data-rotate="-98"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Grunt - Gruntfile.js</h1>
+  <pre><code class="language-json">
+    [...]
+    pkg:     grunt.file.readJSON('package.json'),
+
+    // Meta data
+    // Generates comment block over the code.
+    meta:    {
+    banner: '/**\n' +
+      ' * Project: <%= pkg.title || pkg.name %>\n' +
+      ' * Version: <%= pkg.project_version %> - <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' +
+      ' * Homepage: <%= pkg.homepage %>\n' +
+      ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.company %>\n' +
+      ' * Author: <%= pkg.author.name %>\n' +
+      ' */'
+    },
+    [...]
+  </code></pre>
+</article>
+
+<article id="theme-starter-1"
+         class="step"
+         data-x="2000"
+         data-y="-1300"
+         data-z="8"
+         data-scale="1"
+         data-rotate="-84"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Theme-Starter</h1>
+  <h2>Liefert vorkonfiguriertes Projekt</h2>
+  <div class="split">
+    <ul>
+      <li>Bower</li>
+      <li>Compass</li>
+      <li>jshint</li>
+      <li>concat</li>
+      <li>uglify</li>
+      <li>htmlhint</li>
+    </ul>
+  </div>
+  <div class="split">
+    <ul>
+      <li>qunit</li>
+      <li>Twitter Bootstrap</li>
+      <li>HTML5 Boilerplate</li>
+      <li>html5shiv</li>
+      <li>jQuery</li>
+    </ul>
+  </div>
+  <aside>
+    <ol>
+      <li><a target="_blank" href="https://github.com/alexander-bogomolov/theme-starter">Theme-Starter</a></li>
+    </ol>
+  </aside>
+</article>
+
+<article id="theme-starter-2"
+         class="step"
+         data-x="5000"
+         data-y="-1300"
+         data-z="9"
+         data-scale="1"
+         data-rotate="90"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Commands</h1>
+  <ul>
+    <li><code>compass:dev</code> - Kompeliert Compass im "dev"-Modus. (Ausgedehnt und mit Kommentaren.)</li>
+    <li><code>compass:prod</code> - Kompeliert Compass im "prod"-Modus. (Komprimiert, minifizeirt und ohne Kommentare.)</li>
+    <li><code>jshint:beforeconcat</code> - Überprüft JavaScrit Dateien auf richtigkeit.</li>
+  </ul>
+</article>
+
+<article id="theme-starter-3"
+         class="step"
+         data-x="4200"
+         data-y="-1300"
+         data-z="10"
+         data-scale="1"
+         data-rotate="-90"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Commands</h1>
+  <ul>
+    <li><code>qunit</code> - Lässt Unit Tests laufen. (Wenn welche definiert sind.)</li>
+    <li><code>concat</code> - Führt alle JavaScript Dateien zusammen.</li>
+    <li><code>uglify</code> - Minifiziert die zusammengeführte JavaScript Datei.</li>
+    <li><code>htmlhint:build</code> - Validiert das HTML</li>
+  </ul>
+</article>
+
+<article id="theme-starter-4"
+         class="step"
+         data-x="0"
+         data-y="1000"
+         data-z="0"
+         data-scale="1"
+         data-rotate="11"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Tasks</h1>
+  <ul>
+    <li><code>css-dev</code>  - ['compass:dev']</li>
+    <li><code>css-prod</code> - ['compass:prod']</li>
+    <li><code>js-dev</code>   - ['jshint:beforeconcat', 'concat']</li>
+    <li><code>html</code>     - ['htmlhint:build']</li>
+  </ul>
+</article>
+
+<article id="theme-starter-5"
+         class="step"
+         data-x="0"
+         data-y="1800"
+         data-z="12"
+         data-scale="1"
+         data-rotate="-5"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Tasks</h1>
+  <ul>
+    <li><code>js-prod</code>  - ['jshint:beforeconcat', 'concat', 'uglify']</li>
+    <li><code>default</code>  - ['compass:dev', 'jshint:beforeconcat', 'concat']</li>
+    <li><code>prod</code>     - ['compass:prod', 'jshint:beforeconcat', 'concat', 'uglify']</li>
+  </ul>
+  <aside>
+    <ol>
+      <li><a target="_blank" href="http://mediaqueri.es/pea/">Beispiel</a></li>
+    </ol>
+  </aside>
+</article>
+
+<article id="theme-starter-6"
+         class="step"
+         data-x="0"
+         data-y="2600"
+         data-z="13"
+         data-scale="1"
+         data-rotate="5"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Wer traut sich?</h1>
+  <ul>
+    <li><a href="https://github.com/alexander-bogomolov/theme-starter/blob/master/command-line-tools/package.json" title="">package.json</a></li>
+    <li><a href="https://github.com/alexander-bogomolov/theme-starter/blob/master/command-line-tools/Gruntfile.js" title="">Gruntfile.js</a></li>
+    <li><a href="https://github.com/alexander-bogomolov/theme-starter/blob/master/command-line-tools/component.json" title="">component.json</a></li>
+  </ul>
+</article>
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="3000"-->
+         <!--data-y="0"-->
+         <!--data-z="50"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="5"-->
+         <!--data-rotate-x="10"-->
+         <!--data-rotate-y="5">-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="3000"-->
+         <!--data-y="600"-->
+         <!--data-z="15"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-5"-->
+         <!--data-rotate-x="5"-->
+         <!--data-rotate-y="10">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="3000"-->
+         <!--data-y="1400"-->
+         <!--data-z="16"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>Off Canvas</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-1300"-->
+         <!--data-y="1000"-->
+         <!--data-z="17"-->
+         <!--data-scale="0.5"-->
+         <!--data-rotate="0"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-3500"-->
+         <!--data-y="4250"-->
+         <!--data-z="18"-->
+         <!--data-scale="0.01"-->
+         <!--data-rotate="45"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>Breakpoints</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-3000"-->
+         <!--data-y="0"-->
+         <!--data-z="19"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="90"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="3000"-->
+         <!--data-y="2800"-->
+         <!--data-z="20"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="180"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>Bilder</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="5000"-->
+         <!--data-y="0"-->
+         <!--data-z="21"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-10"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="5000"-->
+         <!--data-y="800"-->
+         <!--data-z="22"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>Adaptive Images</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="5000"-->
+         <!--data-y="1600"-->
+         <!--data-z="23"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="180"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-2500"-->
+         <!--data-y="5000"-->
+         <!--data-z="24"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="45"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>HTML5</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="5000"-->
+         <!--data-y="3000"-->
+         <!--data-z="-10000"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-1300"-->
+         <!--data-y="1500"-->
+         <!--data-z="25"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="0"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>Möglichkeiten</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="3000"-->
+         <!--data-y="2000"-->
+         <!--data-z="26"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="4000"-->
+         <!--data-y="2500"-->
+         <!--data-z="-5000"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1>UI Elemente</h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="6000"-->
+         <!--data-y="3500"-->
+         <!--data-z="-15000"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="-5"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+<!--<article id=""-->
+         <!--class="step"-->
+         <!--data-x="-6000"-->
+         <!--data-y="0"-->
+         <!--data-z="0"-->
+         <!--data-scale="1"-->
+         <!--data-rotate="90"-->
+         <!--data-rotate-x="0"-->
+         <!--data-rotate-y="0">-->
+  <!--<h1></h1>-->
+<!--</article>-->
+
+
+
+<article id="danke"
+         class="step"
+         data-x="0"
+         data-y="-2500"
+         data-z="0"
+         data-scale="1"
+         data-rotate="180"
+         data-rotate-x="0"
+         data-rotate-y="0">
+  <h1>Vielen Dank!</h1>
+  <img id="me" src="lib/images/me.jpg" alt="Alexander Bogomolov" />
+  <ul class="clear">
+    <li><a href="http://www.twitter.de/abogomolov" title="Alexander auf Twitter">@abogomolov</a></li>
+    <li><a href="http://www.bogomolov.de/+" title="Alexander auf Google Plus">+Alexander Bogomolov</a></li>
+  </ul>
+</article>
+
+<article id="overview" class="step" data-x="500" data-y="500" data-scale="15"></article>
+
+</div>
+
+<footer>Alexander Bogomolov - <span class="eos-color">eos</span> new media
+  GmbH & Co. KG<span id="version">v. 1.0</span></footer>
+</section>
+
+
+<script src="lib/js/impress.js"></script>
+<script src="lib/plugins/highlight/highlight.pack.js"></script>
+<script src="lib/js/scripts.js"></script>
+</body>
+</html>
